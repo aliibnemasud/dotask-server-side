@@ -32,6 +32,14 @@ const run = async () => {
             const task = await cursor.toArray();
             res.send(task);
         })
+
+
+        app.get('/alltasks', async (req, res) => {            
+            const query = {};
+            const cursor = tasddkCollection.find(query);
+            const task = await cursor.toArray();
+            res.send(task);
+        })
         
 
         // Add new task
