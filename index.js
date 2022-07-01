@@ -78,6 +78,17 @@ const run = async () => {
             res.send(result);
         });
 
+        // Load task by filtering completed
+
+         // Load Orders - individual
+         app.get('/alltask', async (req, res) => {
+            const progress = req.query.progress;
+            const query = { alltask: progress };
+            const cursor = taskCollection.find(query);
+            const completedTaks = await cursor.toArray();
+            res.send(completedTaks);
+        })
+
 
     }
     finally {
